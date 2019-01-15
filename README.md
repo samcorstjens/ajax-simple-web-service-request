@@ -6,6 +6,8 @@ Voordeel : Meer gedetailleerd, makelijker terug te vinden wat wat doet (makkelij
 
 Nadeel : Meer code, meer schrijf-werk
 
+
+
 jQuery:
 
 Voordeel : Minder code, makkelijkere opbouw.
