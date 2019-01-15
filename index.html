@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax opdracht</title>
+  <link rel="stylesheet" href="master.css">
+</head>
+<body>
+<button id="knop">Laat een quote van een andere site zien</button>
+<p id="antwoord"></p>
+<script>
+
+//making your own object
+var mijnobject, myJSON, text, obj;
+
+mijnobject = {"quote":"You're something between a dream and a miracle.","author":"Elizabeth Barrett Browning","id":"621","permalink":"https:\/\/thatsthespir.it\/quote\/view\/621","photo":"https:\/\/thatsthespir.it\/uploads\/greyscale_elizabeth-barrett-_2844274b.jpg","gender":"f","slug":"elizabeth-barrett-browning","total_quotes":3};
+myJSON = JSON.stringify(mijnobject);
+localStorage.setItem("eindpunt",myJSON);
+
+text = localStorage.getItem("eindpunt");
+obj = JSON.parse(text);
+console.log(obj.quote);
+
+// getting the object from a site
+document.getElementById("knop").addEventListener("click", laadtekst);
+function laadtekst(){
+  var xhr = new XMLHttpRequest();
+  console.log(xhr);
+  xhr.open("GET",'https://thatsthespir.it/api',true);
+
+  xhr.onload = function(){
+    if(this.status == 200){
+    var show = JSON.parse(this.responseText);
+    document.getElementById("antwoord").innerHTML = show.quote;
+    }
+  }
+  xhr.onerror = function(){
+  alert("Request error");
+  }
+
+xhr.send();
+}
+</script>
+
+</body>
+</html>

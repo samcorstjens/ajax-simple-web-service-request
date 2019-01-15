@@ -1,0 +1,12 @@
+body{
+  background: url("stars.jpg");
+  color : white;
+  text-align: center;
+}
+#knop{
+  margin-top:200px;
+}
+p{
+  font-style: italic;
+  font-size: 25px;
+}
